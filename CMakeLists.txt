@@ -24,6 +24,7 @@ include(CMakePackageConfigHelpers)
 # 添加库目标
 add_library(${TARGET_NAME} STATIC
         src/fcbyk/hello.cpp
+        src/fcbyk/algo/highPrecisionSubtract.cpp
 )
 
 # 添加别名目标，方便引用
@@ -83,7 +84,8 @@ install(FILES
 enable_testing()
 
 # 测试目标
-add_executable(run_test tests/test_print.cpp)
+add_executable(run_test tests/run_test.cpp
+)
 target_link_libraries(run_test PRIVATE ${TARGET_NAME})
 
 # 添加测试

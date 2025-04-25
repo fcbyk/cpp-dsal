@@ -1,7 +1,16 @@
 #include <fcbyk/utils.hpp>
+#include <fcbyk/algo.hpp>
+#include <iostream>
 using namespace std;
 
 int main() {
+
+    cout << fcbyk::highPrecisionSubtract("1000","9999");
+
+    return 0;
+}
+
+int test_print() {
 
     fcbyk::print({1,32,43,23});
     cout << endl;
