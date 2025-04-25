@@ -23,10 +23,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE fcbyk::fcbyk_dsal)
 使用示例：
 
 ```cpp
-#include <fcbyk/hello.hpp>
+#include <fcbyk/utils.hpp>
 
 int main() {
-    fcbyk::hello();
+    fcbyk::print("hello world");
     return 0;
 }
 ```

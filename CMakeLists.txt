@@ -23,8 +23,7 @@ include(CMakePackageConfigHelpers)
 
 # 添加库目标
 add_library(${TARGET_NAME} STATIC
-        src/hello.cpp
-        # 添加其他源文件...
+        src/fcbyk/hello.cpp
 )
 
 # 添加别名目标，方便引用
@@ -84,6 +83,11 @@ install(FILES
 enable_testing()
 
 # 测试目标
-add_executable(test_hello tests/test_hello.cpp)
-target_link_libraries(test_hello PRIVATE ${TARGET_NAME})
-add_test(NAME hello_test COMMAND test_hello)
+add_executable(run_test tests/test_print.cpp)
+target_link_libraries(run_test PRIVATE ${TARGET_NAME})
+
+# 添加测试
+add_test(
+        NAME run_test
+        COMMAND run_test
+)
