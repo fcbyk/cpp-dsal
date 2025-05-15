@@ -3,13 +3,6 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-
-    cout << fcbyk::highPrecisionSubtract("1000","9999");
-
-    return 0;
-}
-
 int test_print() {
 
     fcbyk::print({1,32,43,23});
@@ -25,3 +18,12 @@ int test_print() {
 
     return 0;
 }
+
+int main() {
+
+    cout << fcbyk::highPrecisionSubtract("1000","9999");
+    test_print();
+
+    return 0;
+}
+

@@ -25,6 +25,7 @@ include(CMakePackageConfigHelpers)
 add_library(${TARGET_NAME} STATIC
         src/fcbyk/hello.cpp
         src/fcbyk/algo/highPrecisionSubtract.cpp
+        src/fcbyk/algo/IntArrSort.cpp
 )
 
 # 添加别名目标，方便引用
