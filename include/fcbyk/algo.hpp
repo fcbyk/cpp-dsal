@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <algorithm>
+#include "fcbyk/algo/IntArrSort.hpp"
 
 namespace fcbyk{
 
@@ -10,25 +12,5 @@ namespace fcbyk{
      * @return 结果的字符串表示（无前导零）
      */
     std::string highPrecisionSubtract(const std::string& minuend, const std::string& subtrahend);
-
-    /**
-     * int数组排序算法
-     */
-    class IntArrSort {
-    public:
-        /**
-         * @brief 冒泡排序（升序）
-         * @param arr 待排序数组
-         * @param size 数组长度
-         */
-        static void bubbleSort(int arr[], int size);
-
-        /**
-         * @brief 选择排序（升序）
-         * @param arr 待排序数组
-         * @param size 数组长度
-         */
-        static void selectionSort(int arr[], int size);
-    };
 
 }

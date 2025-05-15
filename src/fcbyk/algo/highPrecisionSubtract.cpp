@@ -1,5 +1,4 @@
 #include <fcbyk/algo.hpp>
-#include <algorithm>
 #include <stdexcept>
 
 using namespace std;
