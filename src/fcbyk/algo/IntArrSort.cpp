@@ -81,4 +81,73 @@ namespace fcbyk {
         }
     }
 
+    // 归并排序主函数
+    void IntArrSort::mergeSort(int arr[], int size) {
+        if (size <= 1) return;
+
+        int* temp = new int[size];
+        mergeSortRecursive(arr, 0, size - 1, temp);
+        delete[] temp;
+    }
+
+    // 归并排序递归实现
+    void IntArrSort::mergeSortRecursive(int arr[], int left, int right, int temp[]) {
+        if (left >= right) return;
+
+        int mid = left + (right - left) / 2;
+        mergeSortRecursive(arr, left, mid, temp);
+        mergeSortRecursive(arr, mid + 1, right, temp);
+        merge(arr, left, mid, right, temp);
+    }
+
+    // 合并两个有序子数组
+    void IntArrSort::merge(int arr[], int left, int mid, int right, int temp[]) {
+        int i = left, j = mid + 1, k = 0;
+
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
+            } else {
+                temp[k++] = arr[j++];
+            }
+        }
+
+        while (i <= mid) temp[k++] = arr[i++];
+        while (j <= right) temp[k++] = arr[j++];
+
+        // 拷贝回原数组
+        for (i = left, k = 0; i <= right; ) {
+            arr[i++] = temp[k++];
+        }
+    }
+
+    // 快速排序主函数
+    void IntArrSort::quickSort(int arr[], int size) {
+        if (size <= 1) return;
+        quickSortRecursive(arr, 0, size - 1);
+    }
+
+    // 快速排序递归实现
+    void IntArrSort::quickSortRecursive(int arr[], int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(arr, low, high);
+            quickSortRecursive(arr, low, pivotIndex - 1);
+            quickSortRecursive(arr, pivotIndex + 1, high);
+        }
+    }
+
+    // 快速排序分区函数
+    int IntArrSort::partition(int arr[], int low, int high) {
+        int pivot = arr[high];
+        int i = low;
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                std::swap(arr[i], arr[j]);
+                i++;
+            }
+        }
+        std::swap(arr[i], arr[high]);
+        return i;
+    }
 }

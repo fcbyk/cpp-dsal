@@ -6,6 +6,15 @@ namespace fcbyk {
      * @brief int数组排序算法工具类（所有方法均为静态）
      */
     class IntArrSort {
+    private:
+        // 归并排序辅助函数
+        static void mergeSortRecursive(int arr[], int left, int right, int temp[]);
+        static void merge(int arr[], int left, int mid, int right, int temp[]);
+
+        // 快速排序辅助函数
+        static void quickSortRecursive(int arr[], int low, int high);
+        static int partition(int arr[], int low, int high);
+
     public:
         /**
          * @brief 冒泡排序（升序）
@@ -36,6 +45,22 @@ namespace fcbyk {
          * @note 对小规模数据或接近有序数据效率高
          */
         static void insertionSort(int arr[], int size);
+
+        /**
+         * @brief 归并排序（升序）
+         * @param arr 待排序数组
+         * @param size 数组长度
+         * @note 时间复杂度：O(n log n)，需要额外空间
+         */
+        static void mergeSort(int arr[], int size);
+
+        /**
+         * @brief 快速排序（升序）
+         * @param arr 待排序数组
+         * @param size 数组长度
+         * @note 平均时间复杂度：O(n log n)，原地排序
+         */
+        static void quickSort(int arr[], int size);
     };
 
 }
